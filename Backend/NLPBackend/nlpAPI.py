@@ -13,6 +13,13 @@ def get_all_text_urls():
     db.close()
     return json_object
 
+@app.route("/texts/<int:id>")
+def get_text_by_id(id):
+    db = Database()
+    text = db.get_text_by_id(id)
+    JSONobject = jsonify(text)
+    return JSONobject
+
 @app.route("/keywords")
 def get_all_keywords():
     db = Database()

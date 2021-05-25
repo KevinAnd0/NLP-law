@@ -41,6 +41,12 @@ class Database:
             rows.append(row)
         return rows
 
+    def get_text_by_id(self,id):
+        self.cur = self.connection.cursor()
+        self.cur.execute("SELECT * FROM texts where id = ?",(id,))
+        result = self.cur.fetchone()
+        return result
+
     def get_all_keywords(self):
         rows = []
         self.cur = self.connection.cursor()
