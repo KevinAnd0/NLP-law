@@ -13,7 +13,10 @@ For example:
     databaseCon.close()
     
 (Always close the connection after use)
+'''
 
+
+'''
 Methods:
 
 - Text - table
