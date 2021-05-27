@@ -17,4 +17,10 @@ public class NlpService {
         return result;
     }
 
+    public String getTexts() {
+        String result = restTemplate.getForObject(url+"texts", String.class);
+        return result;
+    }
+
+
 }

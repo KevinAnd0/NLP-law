@@ -26,5 +26,11 @@ public class NlpController {
         return kwords;
     }
 
+    @GetMapping("/texts")
+    public String texts(){
+        String texts = nlpservice.getTexts();
+        return texts;
+    }
+
 }
 
