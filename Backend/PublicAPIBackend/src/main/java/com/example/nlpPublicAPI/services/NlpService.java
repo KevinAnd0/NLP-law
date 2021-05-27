@@ -17,7 +17,4 @@ public class NlpService {
         return result;
     }
 
-    public Keywords getKw() {
-        return restTemplate.getForObject(url+"keywords",Keywords.class);
-    }
 }

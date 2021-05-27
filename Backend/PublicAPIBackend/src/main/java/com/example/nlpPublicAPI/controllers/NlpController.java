@@ -26,12 +26,5 @@ public class NlpController {
         return kwords;
     }
 
-    @GetMapping("/kw")
-    private Keywords kwtest(){
-        Keywords kw = nlpservice.getKw();
-        return kw;
-
-    }
-
 }
 

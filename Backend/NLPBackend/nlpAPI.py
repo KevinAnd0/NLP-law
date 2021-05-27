@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import jsonify, request
+from flask import jsonify
 from dbConnect import Database
 
 app = Flask(__name__)
@@ -29,7 +29,7 @@ def get_all_keywords():
     keywords = db.get_all_keywords()
     JSONobject = jsonify(keywords)
     db.close()
-    return keywords
+    return JSONobject
 
 
 @app.route("/keywords/<word>")
