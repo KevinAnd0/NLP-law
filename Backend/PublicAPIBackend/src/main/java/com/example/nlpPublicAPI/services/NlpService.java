@@ -1,7 +1,6 @@
 package com.example.nlpPublicAPI.services;
 
 import com.example.nlpPublicAPI.entities.Keywords;
-import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -12,5 +11,13 @@ public class NlpService {
 
     RestTemplate restTemplate = new RestTemplate();
     String url = "http://localhost:5000/";
-    
+
+    public String getKeywords() {
+        String result = restTemplate.getForObject(url+"keywords", String.class);
+        return result;
+    }
+
+    public Keywords getKw() {
+        return restTemplate.getForObject(url+"keywords",Keywords.class);
+    }
 }

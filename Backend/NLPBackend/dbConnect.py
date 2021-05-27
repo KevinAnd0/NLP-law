@@ -36,30 +36,27 @@ class Database:
     def __init__(self):
         self.db_name = "nlpdatabase.db"
         self.connection = sqlite3.connect(self.db_name)
+        self.cur = self.connection.cursor()
 
     def get_all_rows_in_texts(self):
         rows = []
-        self.cur = self.connection.cursor()
         for row in self.cur.execute('''SELECT * FROM texts'''):
             rows.append(row)
         return rows
 
-    def get_text_by_id(self,id):
-        self.cur = self.connection.cursor()
+    def get_text_by_id(self, id):
         self.cur.execute("SELECT * FROM texts where id = ?",(id,))
         result = self.cur.fetchone()
         return result
 
     def get_all_keywords(self):
         rows = []
-        self.cur = self.connection.cursor()
         for row in self.cur.execute('''SELECT * FROM keywords'''):
             rows.append(row)
         return rows
 
-    def get_specific_keyword(self,word):
+    def get_specific_keyword(self, word):
         results = []
-        self.cur = self.connection.cursor()
         self.cur.execute("SELECT * FROM keywords WHERE keyword = ?",(word,))
         rows = self.cur.fetchall()
         for row in rows:

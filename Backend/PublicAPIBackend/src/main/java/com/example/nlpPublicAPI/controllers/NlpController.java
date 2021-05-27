@@ -20,6 +20,18 @@ public class NlpController {
         return "Hello";
     }
 
+    @GetMapping("/keywords")
+    public String keywords(){
+        String kwords = nlpservice.getKeywords();
+        return kwords;
+    }
+
+    @GetMapping("/kw")
+    private Keywords kwtest(){
+        Keywords kw = nlpservice.getKw();
+        return kw;
+
+    }
 
 }
 

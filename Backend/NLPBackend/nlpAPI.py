@@ -29,7 +29,7 @@ def get_all_keywords():
     keywords = db.get_all_keywords()
     JSONobject = jsonify(keywords)
     db.close()
-    return JSONobject
+    return keywords
 
 
 @app.route("/keywords/<word>")
