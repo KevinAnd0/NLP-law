@@ -8,6 +8,8 @@ bin-release/
 .settings/
 *.db
 
+*.idea
+
 # Executables
 *.swf
 *.air
