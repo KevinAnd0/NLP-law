@@ -44,4 +44,4 @@ def get_specific_keyword(word):
     return JSONobject
 
 
-app.run(debug=True)
+app.run(port=1000, debug=True)
