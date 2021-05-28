@@ -7,6 +7,8 @@ bin-release/
 # Other files and folders
 .settings/
 *.db
+Backend/NLPBackend/scraped
+Backend/NLPBackend/sv_pipeline-0.0.0
 
 *.idea
 
