@@ -62,7 +62,6 @@ def setup_database():
         cur.execute("INSERT INTO texts (id, summary) VALUES (?, ?)", (file_id, referat))
         con.commit()
 
-        # # Put all the data in the database
         ######
         # Get all the existing keywords in the database
         cur.execute('SELECT keyword FROM keywords')
@@ -79,7 +78,6 @@ def setup_database():
             # Retrieve the id for the keyword
             cur.execute('SELECT id FROM keywords WHERE keyword == (?)', (word,))
             id = int(cur.fetchone()[0])
-            cur.fetchall()  # Clear just in case. Until I get a unique requirement on keyword
 
             # Add to the cross table
             cur.execute("INSERT INTO keywordsXtexts (keywords, texts) VALUES (?,?)", (id, file_id))
@@ -92,4 +90,4 @@ def setup_database():
 
 # setup_database()
 
-delete_database()
+# delete_database()
