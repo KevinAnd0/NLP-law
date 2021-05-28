@@ -22,9 +22,11 @@ Methods:
 - Text - table
 
 get_all_rows_in_texts() - Gets all rows in the text field
+get_text_by_id(id) - Gets text by id
 
 
 - Keywords - table
+
 get_all_keywords() - Gets all rows in keywords
 get_specific_keyword(word) - Finds all posts with a specific word
 
