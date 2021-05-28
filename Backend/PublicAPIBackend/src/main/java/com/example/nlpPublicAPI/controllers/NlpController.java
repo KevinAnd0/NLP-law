@@ -38,5 +38,6 @@ public class NlpController {
         return nlpservice.getTexts();
     }
 
+
 }
 

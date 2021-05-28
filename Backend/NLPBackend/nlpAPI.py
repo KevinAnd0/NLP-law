@@ -3,6 +3,7 @@ from flask import jsonify, request
 from dbConnect import Database
 from flask.wrappers import Response
 from werkzeug.wrappers import response
+from synScraper import get_syn
 
 app = Flask(__name__)
 
@@ -43,5 +44,13 @@ def get_specific_keyword(word):
     db.close()
     return JSONobject
 
+
+@app.route("/search/<word>", methods=["GET"])
+def get_text_by_keyword(word):
+    db = Database()
+    # syns = get_syn(word.lower())
+    words = db.get_text_by_search(word)
+    JSONobject = jsonify(words)
+    return JSONobject
 
 app.run(port=1000, debug=True)
