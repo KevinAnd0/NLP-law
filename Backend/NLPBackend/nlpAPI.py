@@ -1,6 +1,8 @@
-from flask import Flask
+from flask import Flask, json
 from flask import jsonify, request
 from dbConnect import Database
+from flask.wrappers import Response
+from werkzeug.wrappers import response
 
 app = Flask(__name__)
 
@@ -12,6 +14,7 @@ def get_all_text_urls():
     json_object = jsonify(all_rows)
     db.close()
     return json_object
+
 
 
 @app.route("/texts/<int:id>", methods=["GET"])
@@ -29,7 +32,7 @@ def get_all_keywords():
     keywords = db.get_all_keywords()
     JSONobject = jsonify(keywords)
     db.close()
-    return keywords
+    return JSONobject
 
 
 @app.route("/keywords/<word>")
@@ -41,4 +44,4 @@ def get_specific_keyword(word):
     return JSONobject
 
 
-app.run(debug=True)
+app.run(port=1000, debug=True)

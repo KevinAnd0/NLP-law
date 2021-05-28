@@ -1,19 +1,42 @@
 import { createStore } from "vuex" 
 
 const store = createStore({
-   state:{
-        name: "Vue"
+   
+    state:{
+        results: [],
+        search_phrase: []
    },
+   
    mutations:{
-       setName(state, x){
-           state.name = x
+       setSearchResults(state, results){
+           state.results = results
+           console.log(results)
+       },
+       setSearchPhrase(state, data){
+           console.log(data)
+           state.search_phrase = data
        }
+
    },
+   
    actions:{
-        async ({commit}){
-            let name = 'Vue with vuex'
-            commit('setName', name)
-        }
+        async getText ({commit}){
+            let response = await fetch('/api/')
+            let data  = await response
+            console.log(data)
+            commit('setSearchResults', data)
+
+        },
+        
+        /* async insertSearchPhrase({state}){
+            let response = await fetch('/api/',{
+                method: 'post',
+                headers: {'content-type':'application/json'},
+                body: JSON.stringify(state.search_phrase)
+            })
+            let data = await response.json()
+            console.log(data)
+        } */
    }
 })
 

@@ -10,14 +10,17 @@ import java.util.ArrayList;
 public class NlpService {
 
     RestTemplate restTemplate = new RestTemplate();
-    String url = "http://localhost:5000/";
+    String url = "http://localhost:1000/";
 
     public String getKeywords() {
         String result = restTemplate.getForObject(url+"keywords", String.class);
         return result;
     }
 
-    public Keywords getKw() {
-        return restTemplate.getForObject(url+"keywords",Keywords.class);
+    public String getTexts() {
+        String result = restTemplate.getForObject(url+"texts", String.class);
+        return result;
     }
+
+
 }
