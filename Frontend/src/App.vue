@@ -1,15 +1,16 @@
 <template>
   <div>
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <router-view/>
+    <router-link to="/">NLP project</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-
-// This starter template is using Vue 3 experimental <script setup> SFCs
-// Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
+<script>
+export default {
+  created(){
+    this.$store.dispatch('getText')  //dispatch an action
+  }
+}
 </script>
 
 <style>
