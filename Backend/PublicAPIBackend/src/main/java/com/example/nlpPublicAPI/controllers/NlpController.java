@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 
 @RestController
+@RequestMapping("/api")
 public class NlpController {
 
     @Autowired
