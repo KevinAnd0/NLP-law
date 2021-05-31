@@ -1,6 +1,6 @@
 import spacy
 
-nlp = spacy.load(r"C:\SISTA PROJEKT ARBETE\sv_pipeline-0.0.0\sv_pipeline-0.0.0\sv_pipeline\sv_pipeline-0.0.0")
+nlp = spacy.load(r"E:\Coding\nlpmodel\sv_pipeline-0.0.0\sv_pipeline\sv_pipeline-0.0.0")
 
 def noun_ex(query):
 
