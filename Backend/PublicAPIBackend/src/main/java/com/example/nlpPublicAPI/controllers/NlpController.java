@@ -5,12 +5,7 @@ import com.example.nlpPublicAPI.services.NlpService;
 import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -42,6 +37,11 @@ public class NlpController {
         return nlpservice.getTexts();
     }
 
+    @GetMapping(value = "/search/{word}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String search_words(@PathVariable String word){
+
+        return nlpservice.searchTextByWord(word);
+    }
 
 }
 

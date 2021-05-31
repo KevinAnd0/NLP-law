@@ -4,7 +4,7 @@ from dbConnect import Database
 from flask.wrappers import Response
 from werkzeug.wrappers import response
 from synScraper import get_syn
-from keywordExt import noun_ex
+#from keywordExt import noun_ex
 
 app = Flask(__name__)
 
@@ -49,8 +49,8 @@ def get_specific_keyword(word):
 @app.route("/search/<word>", methods=["GET"])
 def get_text_by_keyword(word):
     db = Database()
-    noun = noun_ex(word)
-    syns = get_syn(noun)
+    #noun = noun_ex(word)
+    syns = get_syn(word)
     syns.insert(0, word)
     words = []
     for f in syns:
