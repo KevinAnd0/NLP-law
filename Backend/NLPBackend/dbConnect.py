@@ -41,10 +41,15 @@ class Database:
         self.cur = self.connection.cursor()
 
     def get_all_rows_in_texts(self):
-        rows = []
+        results = []
         for row in self.cur.execute('''SELECT * FROM texts'''):
-            rows.append(row)
-        return rows
+            obj = {
+                'id': row[0],
+                'documentlink': row[1],
+                'summary': row[2]
+            }
+            results.append(obj)
+        return results
 
     def get_text_by_id(self, id):
         self.cur.execute("SELECT * FROM texts where id = ?",(id,))
@@ -52,10 +57,14 @@ class Database:
         return result
 
     def get_all_keywords(self):
-        rows = []
+        results = []
         for row in self.cur.execute('''SELECT * FROM keywords'''):
-            rows.append(row)
-        return rows
+            obj = {
+                'id': row[0],
+                'keyword': row[1]
+            }
+            results.append(obj)
+        return results
 
     def get_specific_keyword(self, word):
         results = []
@@ -66,12 +75,16 @@ class Database:
         return results
 
     def get_text_by_search(self, word):
-        result = []
+        results = []
         self.cur.execute("SELECT * FROM keywords WHERE LOWER(keyword) LIKE ('%'||?||'%')", (word,))
         rows = self.cur.fetchall()
         for row in rows:
-            result.append(row)
-        return result
+            obj = {
+                'id': row[0],
+                'keyword': row[1]
+            }
+            results.append(obj)
+        return results
 
     def close(self):
         self.connection.commit()
