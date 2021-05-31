@@ -22,5 +22,10 @@ public class NlpService {
         return result;
     }
 
+    public String searchTextByWord() {
+        String result = restTemplate.getForObject(url+"search/word", String.class);
+        return result;
+    }
+
 
 }

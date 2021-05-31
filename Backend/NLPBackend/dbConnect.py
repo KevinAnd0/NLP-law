@@ -65,6 +65,14 @@ class Database:
             results.append(row)
         return results
 
+    def get_text_by_search(self, word):
+        result = []
+        self.cur.execute("SELECT * FROM keywords WHERE LOWER(keyword) LIKE ('%'||?||'%')", (word,))
+        rows = self.cur.fetchall()
+        for row in rows:
+            result.append(row)
+        return result
+
     def close(self):
         self.connection.commit()
         self.connection.close()

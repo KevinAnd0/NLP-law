@@ -10,4 +10,8 @@ export default defineConfig({
     },
     
   }
+<<<<<<< HEAD
 })
+=======
+})
+>>>>>>> e-dev

@@ -37,5 +37,8 @@ export default {
         border-radius:5px;
         padding:10px;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> e-dev
 </style>
