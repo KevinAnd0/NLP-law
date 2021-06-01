@@ -11,7 +11,7 @@ const store = createStore({
    mutations:{
        setSearchResults(state, results){
            state.results = results
-           console.log(results)
+        //    console.log(results)
 
        },
        setSearchPhrase(state, data){
@@ -22,16 +22,15 @@ const store = createStore({
    },
    
    actions:{
-        // async getText ({commit}){
-        //     let response = await fetch('/api/search/' + state.search_phrase)
-        //     let data  = await response
-        //     console.log(data)
-        //     commit('setSearchResults', data)
-
-        // },
+        async getText ({commit}){
+            let response = await fetch('/api/search/' + store.state.search_phrase.search_phrase)
+            let data  = await response.json()
+            console.log(data)
+            commit('setSearchResults', data)
+        },
         
         async insertSearchPhrase({state}){
-            let response = await fetch('/api/search/' + state.results.search_phrase)
+            let response = await fetch('/api/search/' + state.search_phrase.search_phrase)
             let data = await response.json()
             console.log(data)
             
