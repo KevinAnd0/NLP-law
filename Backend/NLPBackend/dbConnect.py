@@ -1,4 +1,5 @@
 import sqlite3
+import json
 
 '''
 Usage:
@@ -68,3 +69,7 @@ class Database:
     def close(self):
         self.connection.commit()
         self.connection.close()
+
+
+
+Database().get_all_rows_in_texts()
