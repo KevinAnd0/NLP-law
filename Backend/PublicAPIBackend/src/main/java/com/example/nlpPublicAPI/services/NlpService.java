@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class NlpService {
 
     RestTemplate restTemplate = new RestTemplate();
-    String url = "http://localhost:5000/";
+    String url = "http://localhost:1000/";
 
     public Keywords getKeywords() {
         Keywords result = restTemplate.getForObject(url+"keywords", Keywords.class);
