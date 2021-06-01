@@ -5,20 +5,28 @@
             <input type="text" v-model="search_phrase" placeholder="write text">
             <input type="submit" value="search">
         </form>
+        <Texts />
 
-        <div>
+        <!-- <div>
             <li class="text" v-for="r in results" :key="r.id">{{r}}</li> 
-        </div>
-       
+        </div> -->
     </div>
 </template>
 <script>
+
+import Texts from './Texts.vue'
+
 export default {
-    computed:{
-        results(){
-            return this.$store.state.results
-        }
+    components: {
+        Texts
+
     },
+
+    // computed:{
+    //     results(){
+    //         return this.$store.state.results
+    //     }
+    // },
     methods:{
         submit(event){
             event.preventDefault()
