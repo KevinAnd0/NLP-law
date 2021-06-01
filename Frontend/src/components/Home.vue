@@ -7,20 +7,25 @@
         </form>
 
         <div>
-            <h3>{{results}}</h3>
+            <p class="text" v-for="(lager, i) of lagerstedt" :key="i">{{ lager.keyword }}</p>
         </div>
        
     </div>
 </template>
 <script>
 export default {
+    computed:{
+        lagerstedt(){
+            return this.$store.state.lagerstedt
+        }
+    },
     methods:{
         submit(event){
             event.preventDefault()
             this.$store.commit('setSearchResults', {
-               search_phrase: this.search_phrase
+                search_phrase: this.search_phrase
             })
-            this.$store.dispatch('getText')
+            this.$store.dispatch('insertSearchPhrase')
         
         }
         
