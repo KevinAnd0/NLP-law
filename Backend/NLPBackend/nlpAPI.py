@@ -50,9 +50,14 @@ def get_text_by_keyword(word):
     db = Database()
     syns = get_syn(word)
     syns.insert(0, word)
-    words = [db.get_text_by_search(s) for s in syns if db.get_text_by_search(s)]
-    JSONobject = jsonify(words)
+    words = [db.get_keywords_by_search(s) for s in syns if db.get_keywords_by_search(s)]
+    results = []
+    for wor in words:
+        for w in wor:
+            obj = db.get_texts_by_keywords(w.get('keyword'))
+            results.append(obj)
+    JSONobject = jsonify(results)
     return JSONobject
-
+    
 
 app.run(port=1000, debug=True)

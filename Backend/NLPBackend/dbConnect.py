@@ -74,7 +74,7 @@ class Database:
             results.append(row)
         return results
 
-    def get_text_by_search(self, word):
+    def get_keywords_by_search(self, word):
         results = []
         self.cur.execute("SELECT * FROM keywords WHERE LOWER(keyword) LIKE ('%'||?||'%')", (word,))
         rows = self.cur.fetchall()
@@ -86,6 +86,20 @@ class Database:
             results.append(obj)
         return results
 
+    def get_texts_by_keywords(self, keyword):
+        results = []
+        self.cur.execute('''SELECT DISTINCT texts.id, summary FROM texts JOIN keywords, keywordsXtexts
+                            ON texts.id = keywordsXtexts.texts AND keywords.id = keywordsXtexts.keywords 
+                            WHERE LOWER(keyword) LIKE ('%'||?||'%')''', (keyword,))
+        rows = self.cur.fetchall()
+        for row in rows:
+            obj = {
+                'id': row[0],
+                'text': row[1]
+            }
+            results = obj
+        return results
+    
     def close(self):
         self.connection.commit()
         self.connection.close()
