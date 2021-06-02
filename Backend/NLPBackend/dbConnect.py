@@ -90,7 +90,7 @@ class Database:
         results = None
         check = self.cur.execute('''SELECT DISTINCT * FROM texts JOIN keywords, keywordsXtexts
                             ON texts.id = keywordsXtexts.texts AND keywords.id = keywordsXtexts.keywords 
-                            WHERE LOWER(keyword) LIKE ('%'||?||'%')''', (keyword,))
+                            WHERE LOWER(keywords.keyword) = ?''', (keyword,))
         rows = self.cur.fetchall()
         for row in rows:
             results = {
