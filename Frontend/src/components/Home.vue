@@ -8,7 +8,7 @@
 
         <div>
             <ul>
-                <li v-for="item in lagerstedt" :key="item.id">{{item.text}}</li>
+                <li v-for="item in lagerstedt" :key="item.id">{{item.summary}}</li>
             </ul>
         </div>
 

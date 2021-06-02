@@ -45,7 +45,7 @@ def get_specific_keyword(word):
     return JSONobject
 
 
-@app.route("/search/<word>", methods=["GET"])
+@app.route("/search/<phrase>", methods=["GET"])
 def get_text_by_keyword(phrase):
     db = Database()
     syns = get_syn(phrase)
@@ -53,7 +53,7 @@ def get_text_by_keyword(phrase):
     words = [db.get_keywords_by_search(s) for s in syns if db.get_keywords_by_search(s)]
     results = [db.get_texts_by_keywords(w.get('keyword')) for word in words for w in word]
     JSONobject = jsonify(results)
-    return results
+    return JSONobject
 
 
 app.run(port=1000, debug=True)

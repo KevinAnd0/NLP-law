@@ -44,9 +44,9 @@ class Database:
         results = []
         for row in self.cur.execute('''SELECT * FROM texts'''):
             obj = {
-                'id': row[0],
-                'documentlink': row[1],
-                'summary': row[2]
+                self.cur.description[0][0]: row[0],
+                self.cur.description[1][0]: row[1],
+                self.cur.description[2][0]: row[2]
             }
             results.append(obj)
         return results
@@ -60,8 +60,8 @@ class Database:
         results = []
         for row in self.cur.execute('''SELECT * FROM keywords'''):
             obj = {
-                'id': row[0],
-                'keyword': row[1]
+                self.cur.description[0][0]: row[0],
+                self.cur.description[1][0]: row[1]
             }
             results.append(obj)
         return results
@@ -80,26 +80,27 @@ class Database:
         rows = self.cur.fetchall()
         for row in rows:
             obj = {
-                'id': row[0],
-                'keyword': row[1]
+                self.cur.description[0][0]: row[0],
+                self.cur.description[1][0]: row[1]
             }
             results.append(obj)
         return results
 
     def get_texts_by_keywords(self, keyword):
         results = None
-        self.cur.execute('''SELECT DISTINCT texts.id, summary FROM texts JOIN keywords, keywordsXtexts
+        check = self.cur.execute('''SELECT DISTINCT * FROM texts JOIN keywords, keywordsXtexts
                             ON texts.id = keywordsXtexts.texts AND keywords.id = keywordsXtexts.keywords 
                             WHERE LOWER(keyword) LIKE ('%'||?||'%')''', (keyword,))
         rows = self.cur.fetchall()
         for row in rows:
-            obj = {
-                'id': row[0],
-                'text': row[1]
+            results = {
+                self.cur.description[0][0]: row[0],
+                self.cur.description[1][0]: row[1],
+                self.cur.description[2][0]: row[2]
             }
-            results = obj
         return results
     
     def close(self):
         self.connection.commit()
         self.connection.close()
+
