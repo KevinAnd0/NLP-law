@@ -87,7 +87,7 @@ class Database:
         return results
 
     def get_texts_by_keywords(self, keyword):
-        results = []
+        results = None
         self.cur.execute('''SELECT DISTINCT texts.id, summary FROM texts JOIN keywords, keywordsXtexts
                             ON texts.id = keywordsXtexts.texts AND keywords.id = keywordsXtexts.keywords 
                             WHERE LOWER(keyword) LIKE ('%'||?||'%')''', (keyword,))
