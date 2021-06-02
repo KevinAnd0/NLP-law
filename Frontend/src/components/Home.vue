@@ -7,9 +7,17 @@
         </form>
 
         <div>
-            <p class="text" v-for="(lager, i) of lagerstedt" :key="i">{{ lager.keyword }}</p>
+            <ul>
+                <li v-for="item in lagerstedt[0]" :key="item.id">{{item.keyword}}</li>
+            </ul>
         </div>
-       
+
+        <!-- <section v-for="item in lagerstedt" :key="item.keyword" >
+            <div class="text">
+                <h2>{{item.keyword}}</h2>
+            </div>
+            <div>{{lagerstedt}}</div>
+        </section> -->
     </div>
 </template>
 <script>
