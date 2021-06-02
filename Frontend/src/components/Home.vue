@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <form @submit="submit">
             <h2>Search links</h2>
             <input type="text" v-model="search_phrase" placeholder="write text">
@@ -7,8 +7,8 @@
         </form>
 
         <div>
-            <ul>
-                <li v-for="item in lagerstedt" :key="item.id">{{item.text}}</li>
+            <ul class="list-group">
+                <li class="list-group-item" v-for="item in lagerstedt" :key="item.id">{{item.text}}</li>
             </ul>
         </div>
 
