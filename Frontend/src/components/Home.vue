@@ -8,7 +8,7 @@
 
         <div>
             <ul class="list-group">
-                <li class="list-group-item" v-for="item in lagerstedt" :key="item.id">{{item.text}}</li>
+                <li class="list-group-item" v-for="item in lagerstedt" :key="item.id">{{item.summary}}</li>
             </ul>
         </div>
 
@@ -49,5 +49,8 @@ export default {
         background-color: grey;
         border-radius:5px;
         padding:10px;
+    }
+    .morot{
+        float: left;
     }
 </style>
