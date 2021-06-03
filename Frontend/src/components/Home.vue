@@ -1,15 +1,18 @@
 <template>
-    <div>
+    <div class="container">
         <form @submit="submit">
             <h2>Search links</h2>
             <input type="text" v-model="search_phrase" placeholder="write text">
             <input type="submit" value="search">
         </form>
 
-        <ul v-for="(item, index) in lagerstedt" :key="index">
-                <li>{{item.summary}}</li>
-        </ul>
-        <!-- <section v-for="item in lagerstedt[0]" :key="item.keyword" >
+        <div>
+            <ul class="list-group">
+                <li class="list-group-item" v-for="item in lagerstedt" :key="item.id">{{item.summary}}</li>
+            </ul>
+        </div>
+
+        <!-- <section v-for="item in lagerstedt" :key="item.keyword" >
             <div class="text">
                 <h2>{{item.keyword}}</h2>
             </div>
