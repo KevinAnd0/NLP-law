@@ -42,7 +42,7 @@ class Database:
 
     def get_all_rows_in_texts(self):
         results = []
-        for row in self.cur.execute('''SELECT * FROM texts'''):
+        for row in self.cur.execute("SELECT * FROM texts"):
             obj = {
                 self.cur.description[0][0]: row[0],
                 self.cur.description[1][0]: row[1],
@@ -58,7 +58,7 @@ class Database:
 
     def get_all_keywords(self):
         results = []
-        for row in self.cur.execute('''SELECT * FROM keywords'''):
+        for row in self.cur.execute("SELECT * FROM keywords"):
             obj = {
                 self.cur.description[0][0]: row[0],
                 self.cur.description[1][0]: row[1]
@@ -88,9 +88,9 @@ class Database:
 
     def get_texts_by_keywords(self, keyword):
         results = None
-        check = self.cur.execute('''SELECT DISTINCT * FROM texts JOIN keywords, keywordsXtexts
+        self.cur.execute('''SELECT DISTINCT * FROM texts JOIN keywords, keywordsXtexts
                             ON texts.id = keywordsXtexts.texts AND keywords.id = keywordsXtexts.keywords 
-                            WHERE LOWER(keywords.keyword) = ?''', (keyword,))
+                            WHERE LOWER(keyword) LIKE ('%'||?||'%')''', (keyword,))
         rows = self.cur.fetchall()
         for row in rows:
             results = {
@@ -104,3 +104,5 @@ class Database:
         self.connection.commit()
         self.connection.close()
 
+db = Database()
+db.get_texts_by_keywords('')
