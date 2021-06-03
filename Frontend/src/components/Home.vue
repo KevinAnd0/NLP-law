@@ -7,9 +7,7 @@
         </form>
 
         <ul v-for="(item, index) in lagerstedt" :key="index">
-            <li v-for="(bob, id) in item" :key="id">
-                {{bob.keyword}}
-            </li>
+                <li>{{item.summary}}</li>
         </ul>
         <!-- <section v-for="item in lagerstedt[0]" :key="item.keyword" >
             <div class="text">
