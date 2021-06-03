@@ -6,13 +6,12 @@
             <input type="submit" value="search">
         </form>
 
-        <div>
-            <ul>
-                <li v-for="item in lagerstedt" :key="item.id">{{item.summary}}</li>
-            </ul>
-        </div>
-
-        <!-- <section v-for="item in lagerstedt" :key="item.keyword" >
+        <ul v-for="(item, index) in lagerstedt" :key="index">
+            <li v-for="(bob, id) in item" :key="id">
+                {{bob.keyword}}
+            </li>
+        </ul>
+        <!-- <section v-for="item in lagerstedt[0]" :key="item.keyword" >
             <div class="text">
                 <h2>{{item.keyword}}</h2>
             </div>
@@ -49,5 +48,8 @@ export default {
         background-color: grey;
         border-radius:5px;
         padding:10px;
+    }
+    .morot{
+        float: left;
     }
 </style>
