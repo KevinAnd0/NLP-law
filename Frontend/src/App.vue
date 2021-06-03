@@ -8,7 +8,7 @@
 <script>
 export default {
   created(){
-    this.$store.dispatch('getText')  //dispatch an action
+    
   }
 }
 </script>

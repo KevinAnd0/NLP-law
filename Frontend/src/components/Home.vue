@@ -11,13 +11,6 @@
                 <li class="list-group-item" v-for="item in lagerstedt" :key="item.id">{{item.summary}}</li>
             </ul>
         </div>
-
-        <!-- <section v-for="item in lagerstedt" :key="item.keyword" >
-            <div class="text">
-                <h2>{{item.keyword}}</h2>
-            </div>
-            <div>{{lagerstedt}}</div>
-        </section> -->
     </div>
 </template>
 <script>
