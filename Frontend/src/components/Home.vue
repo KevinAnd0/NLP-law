@@ -2,14 +2,18 @@
     <div class="container">
         <form @submit="submit">
             <h2>Search links</h2>
-            <input type="text" v-model="search_phrase" placeholder="write text">
-            <input type="submit" value="search">
+            <div class="row">
+                <div class="col-4">
+                    <input type="text" class="form-control" id="searchField" v-model="search_phrase"  placeholder="write text">
+                </div>
+                <div class="col-2">
+                    <button type="submit" class="btn btn-primary mb-2" id="button" value="search">Sök</button>
+                </div>
+            </div>       
         </form>
 
-        <div>
-            <ul class="list-group">
-                <li class="list-group-item" v-for="item in lagerstedt" :key="item.id">{{item.summary}}</li>
-            </ul>
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action" v-for="item in lagerstedt" :key="item.id">{{item.summary}}</a> 
         </div>
     </div>
 </template>
