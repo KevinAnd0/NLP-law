@@ -13,7 +13,7 @@
         </form>
 
         <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action" v-for="item in lagerstedt" :key="item.id">{{item.summary}}</a> 
+            <a href="#" class="list-group-item list-group-item-action" v-for="item in lagerstedt" :key="item.id" v-on:click="handleSelectItem(item)">{{item.summary}}</a>       
         </div>
     </div>
 </template>
@@ -32,11 +32,18 @@ export default {
             })
             this.$store.dispatch('insertSearchPhrase')
         
-        }
-        
-    },
-    
-    
+        },
+         
+        handleSelectItem(item){
+            this.item = item.documentlink
+            if(this.item !== null){
+                window.open("src/pdfs/" + this.item);
+            }else{
+                alert("Ingen dom hittad")
+            }
+            console.log(this.item)
+        }     
+    },        
 }
 </script>
 
@@ -49,5 +56,8 @@ export default {
     }
     .morot{
         float: left;
+    }
+    a:hover{
+        background-color:lightgrey;
     }
 </style>

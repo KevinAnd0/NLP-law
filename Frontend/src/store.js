@@ -4,7 +4,7 @@ const store = createStore({
    
     state:{
         
-        lagerstedt: []    
+        lagerstedt: []
    },
    
    mutations:{
@@ -31,13 +31,8 @@ const store = createStore({
 
             
             state.lagerstedt = uniqueDocuments
-            console.log(state.lagerstedt) 
-
-            
-
-           
-
-           
+            console.log(state.lagerstedt)      
+       
         }
     }
 })
