@@ -1,29 +1,39 @@
 <template>
-  <div class="container">
-    <router-link to="/">DUMSTOL</router-link>
-    <router-view></router-view>
+  <div>
+      <Navbar />
+      <router-view></router-view>
   </div>
 </template>
 
 <script>
+import Navbar from './components/Navbar.vue'
 export default {
-  created(){
-    this.$store.dispatch('getText')  //dispatch an action
+  components: {
+    Navbar
   }
 }
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Forum, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 25px;
+  color: #ffffff;
   
+}  
+body {
+ 
+ background-image: url("/src/assets/bill-oxford-OXGhu60NwxU-unsplash.jpg");
+ background-color: #cccccc;
+ background-position: center;
+ background-size: cover;
+ background-attachment: fixed;
 }
-a{
-  text-decoration: none;
+h1{
+  font-family: Playfair Display, serif;
 }
 </style>
