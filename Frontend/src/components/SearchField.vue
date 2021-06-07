@@ -2,11 +2,10 @@
     
     <form @submit="submit" class="d-flex w-50">
             
-        <input type="search" class="form-control me-2" v-model="search_phrase"  placeholder="Sök i vägledande domar...">
+        <input type="search" class="form-control me-2" v-model="search_phrase"  placeholder="Sök i vägledande domar..." aria-label="Search">
       
-        <button type="submit" class="btn btn-outline-secondary mb-2">Sök</button>
-                
-              
+        <button type="submit" class="btn btn-outline-secondary">Sök</button>
+                        
     </form>
     
 </template>
@@ -16,7 +15,7 @@ export default {
     methods:{
         submit(event){
             event.preventDefault()
-            //this.$router.push('Search') // Should redirect to 'Search.vue'
+            this.$router.push('search') // redirect to 'Search.vue'
             this.$store.commit('setSearchResults', {
                 search_phrase: this.search_phrase
             })

@@ -1,60 +1,38 @@
 <template>
     <div class="container">
-        <form @submit="submit">
-            <h2>Search links</h2>
+       
+        <div class="col mt-3" style="height:200px; ">
+            <h1 class="display-4">DUMSTOL</h1>
+            <h2>Vägledande domar för dummies</h2>
+        </div>
+    
+        <div class="d-none d-sm-block">
             <div class="row">
-                <div class="col-4">
-                    <input type="text" class="form-control" id="searchField" v-model="search_phrase"  placeholder="write text">
+                <div class="col-6 col-sm-6">
+                    <img src="/src/assets/jing-xi-lau-Y5oVH2tNN9U-unsplash.jpg" class="rounded-3 border border-2 border-light w-100">
                 </div>
-                <div class="col-2">
-                    <button type="submit" class="btn btn-primary mb-2" id="button" value="search">Sök</button>
+                
+                <div class="col-4 col-sm-6 mx-auto">
+                    <h2>För dig som konsument</h2>
+                    <p class="lead lh-1"> I vår app har vi valt att fokusera på vägledande domar rörande konsumentfrågor.</p>
                 </div>
-            </div>       
-        </form>
-
-        <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action" v-for="item in lagerstedt" :key="item.id">{{item.summary}}</a> 
+            </div>
         </div>
 
-        <!-- <section v-for="item in lagerstedt" :key="item.keyword" >
-            <div class="text">
-                <h2>{{item.keyword}}</h2>
-            </div>
-            <div>{{lagerstedt}}</div>
-        </section> -->
     </div>
+    
 </template>
+
 <script>
+
 export default {
-    computed:{
-        lagerstedt(){
-            return this.$store.state.lagerstedt
-        }
-    },
-    methods:{
-        submit(event){
-            event.preventDefault()
-            this.$store.commit('setSearchResults', {
-                search_phrase: this.search_phrase
-            })
-            this.$store.dispatch('insertSearchPhrase')
-        
-        }
-        
-    },
     
     
 }
 </script>
 
-<style  scoped>
-    form{
-        margin-top: 15px;
-        background-color: grey;
-        border-radius:5px;
-        padding:10px;
-    }
-    .morot{
-        float: left;
-    }
+<style scoped>
+
+
+
 </style>

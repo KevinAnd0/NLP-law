@@ -2,7 +2,7 @@
   <nav class="navbar " id="navbar">
     <div class="container-fluid">
       <span class="navbar-brand mb-0 h1">
-        <router-link to="/" style="text-decoration:none">
+        <router-link to="/">
           <h1>DUMSTOL <i class="fas fa-gavel"></i></h1>
         </router-link>
       </span>
@@ -44,8 +44,11 @@ export default {
 </script>
 
 <style scoped>
+
 a{
-   color:black 
+   color:black;
+   text-decoration: none;
+   
 }
 a:hover{
     color: rgba(0, 0, 0, 0.603)

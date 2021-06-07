@@ -16,9 +16,8 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
 #app {
-  font-family: Forum, Helvetica, Arial, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -29,11 +28,12 @@ body {
  
  background-image: url("/src/assets/bill-oxford-OXGhu60NwxU-unsplash.jpg");
  background-color: #cccccc;
- background-position: center;
+ /* background-position: center; */
  background-size: cover;
  background-attachment: fixed;
 }
 h1{
   font-family: Playfair Display, serif;
 }
+
 </style>
