@@ -1,6 +1,6 @@
 <template>
-    <div class="container col-8">
-        <div class="col mt-3  " style="height: 50px">
+    <div class="container col-8 mb-5" style="background-color: rgba(235, 215, 184, 0.429)">
+        <div class="col h-50">
             <h3>Sökresultat:</h3>
         </div>
         <div class="list-group">

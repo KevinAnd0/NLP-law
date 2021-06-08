@@ -7,7 +7,7 @@
             <h2>Vägledande domar för dummies</h2>
         </div>
     
-        <div class="d-none d-sm-block pl-0" style="">
+        <div class="d-none d-sm-block">
             <div class="row">
                 <div class="col-6 col-sm-6">
                     <img src="/src/assets/jing-xi-lau-Y5oVH2tNN9U-unsplash.jpg" class="rounded-3 border border-dark w-100">
