@@ -27,45 +27,6 @@
 <script>
 
 export default {
-    // computed:{
-    //     lagerstedt(){
-    //         return this.$store.state.lagerstedt
-    //     }
-    // },
-    // methods:{
-    //     submit(event){
-    //         event.preventDefault()
-    //         this.$store.commit('setSearchResults', {
-    //             search_phrase: this.search_phrase
-    //         })
-    //         this.$store.dispatch('insertSearchPhrase')
-        
-    //     },
-         
-        // handleSelectItem(item){
-        //     this.item = item.documentlink
-        //     if(this.item !== null){
-        //         window.open("src/pdfs/" + this.item);
-        //     }else{
-        //         alert("Ingen dom hittad")
-        //     }
-        //     console.log(this.item)
-        // }     
-    // },        
+          
 }
 </script>
-
-<style  scoped>
-    form{
-        margin-top: 15px;
-        background-color: grey;
-        border-radius:5px;
-        padding:10px;
-    }
-    .morot{
-        float: left;
-    }
-    a:hover{
-        background-color:lightgrey;
-    }
-</style>
