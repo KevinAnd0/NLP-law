@@ -14,6 +14,17 @@ export default {
         lagerstedt(){
             return this.$store.state.lagerstedt
         }
+    },
+    methods:{
+        handleSelectItem(item){
+            this.item = item.documentlink
+            if(this.item !== null){
+                window.open("src/pdfs/" + this.item);
+            }else{
+                alert("Ingen dom hittad")
+            }
+            console.log(this.item)
+        }   
     }
     
     

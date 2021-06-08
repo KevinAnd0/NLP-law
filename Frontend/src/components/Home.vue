@@ -27,31 +27,31 @@
 <script>
 
 export default {
-    computed:{
-        lagerstedt(){
-            return this.$store.state.lagerstedt
-        }
-    },
-    methods:{
-        submit(event){
-            event.preventDefault()
-            this.$store.commit('setSearchResults', {
-                search_phrase: this.search_phrase
-            })
-            this.$store.dispatch('insertSearchPhrase')
+    // computed:{
+    //     lagerstedt(){
+    //         return this.$store.state.lagerstedt
+    //     }
+    // },
+    // methods:{
+    //     submit(event){
+    //         event.preventDefault()
+    //         this.$store.commit('setSearchResults', {
+    //             search_phrase: this.search_phrase
+    //         })
+    //         this.$store.dispatch('insertSearchPhrase')
         
-        },
+    //     },
          
-        handleSelectItem(item){
-            this.item = item.documentlink
-            if(this.item !== null){
-                window.open("src/pdfs/" + this.item);
-            }else{
-                alert("Ingen dom hittad")
-            }
-            console.log(this.item)
-        }     
-    },        
+        // handleSelectItem(item){
+        //     this.item = item.documentlink
+        //     if(this.item !== null){
+        //         window.open("src/pdfs/" + this.item);
+        //     }else{
+        //         alert("Ingen dom hittad")
+        //     }
+        //     console.log(this.item)
+        // }     
+    // },        
 }
 </script>
 
