@@ -1,26 +1,27 @@
 <template>
-    <div class="container">
+    <div class="min-vh-100 container rounded-bottom " style=" background-color: rgba(235, 215, 184, 0.429)">
        
-        <div class="col mt-3" style="height:200px; ">
+
+        <div class="col rounded-3 mb-3 " style="height:200px;">
             <h1 class="display-4">DUMSTOL</h1>
             <h2>Vägledande domar för dummies</h2>
         </div>
     
-        <div class="d-none d-sm-block">
+        <div class="d-none d-sm-block pl-0" style="">
             <div class="row">
                 <div class="col-6 col-sm-6">
-                    <img src="/src/assets/jing-xi-lau-Y5oVH2tNN9U-unsplash.jpg" class="rounded-3 border border-2 border-light w-100">
+                    <img src="/src/assets/jing-xi-lau-Y5oVH2tNN9U-unsplash.jpg" class="rounded-3 border border-dark w-100">
                 </div>
                 
-                <div class="col-4 col-sm-6 mx-auto">
+                <div class="col-4 col-sm-6 rounded-3">
                     <h2>För dig som konsument</h2>
-                    <p class="lead lh-1"> I vår app har vi valt att fokusera på vägledande domar rörande konsumentfrågor.</p>
+                    <p class="lead "> I vår app har vi valt att fokusera på vägledande domar rörande konsumentfrågor.</p>
                 </div>
-            </div>
         </div>
+        
+       </div>
 
     </div>
-    
 </template>
 
 <script>

@@ -4,7 +4,7 @@
             
         <input type="search" class="form-control me-2" v-model="search_phrase"  placeholder="Sök i vägledande domar..." aria-label="Search">
       
-        <button type="submit" class="btn btn-outline-secondary">Sök</button>
+        <button type="submit" class="btn btn-secondary">Sök</button>
                         
     </form>
     
