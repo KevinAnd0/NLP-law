@@ -1,7 +1,7 @@
 import requests
 import re
 from google_trans_new import google_translator
-import spacy
+# import spacy
 
 # nlp = spacy.load(r"C:\SISTA PROJEKT ARBETE\sv_pipeline-0.0.0\sv_pipeline-0.0.0\sv_pipeline\sv_pipeline-0.0.0")
 
@@ -24,9 +24,9 @@ def id_language(query):
 
 
 def get_syn(query):
-    if id_language(query) != "sv":
-        translator = google_translator()
-        query = translator.translate(query, lang_tgt="sv")
+    # if id_language(query) != "sv":
+    #     translator = google_translator()
+    #     query = translator.translate(query, lang_tgt="sv")
         
     response = requests.get(f'https://www.synonymer.se/sv-syn/{query}')
     syn_tags = re.findall(r'<li value="1">(.+?)</li>', response.text)    
