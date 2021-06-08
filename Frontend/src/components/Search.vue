@@ -4,7 +4,7 @@
             <h3>Sökresultat:</h3>
         </div>
         <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action" v-for="item in lagerstedt" :key="item.id">{{item.summary}}</a> 
+            <a href="#" class="list-group-item list-group-item-action" v-for="item in lagerstedt" :key="item.id" v-on:click="handleSelectItem(item)">{{item.summary}}</a>   
         </div>
     </div>
 </template>
