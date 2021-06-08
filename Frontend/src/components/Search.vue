@@ -1,7 +1,7 @@
 <template>
-    <div class="container col-8 mb-5" style="background-color: rgba(235, 215, 184, 0.429)">
+    <div class="container col-8 mb-5">
         <div class="col h-50">
-            <h3>Sökresultat:</h3>
+            <h3 class="rounded-bottom">Sökresultat:</h3>
         </div>
         <div class="list-group">
             <a href="#" class="list-group-item list-group-item-action" v-for="item in lagerstedt" :key="item.id" v-on:click="handleSelectItem(item)">{{item.summary}}</a>   
@@ -38,6 +38,9 @@ export default {
 .list-group-item:hover {
     background-color: rgb(199, 171, 133);
 } 
+h3{
+    background-color: rgb(235, 215, 184);
+}
   
  
 </style>
