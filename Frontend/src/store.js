@@ -3,9 +3,8 @@ import { createStore } from "vuex"
 const store = createStore({
    
     state:{
-        results: [],
-        search_phrase: [],
-        lagerstedt: []    
+        
+        lagerstedt: []
    },
    
    mutations:{
@@ -14,31 +13,28 @@ const store = createStore({
            console.log(results)
 
        },
-       setSearchPhrase(state, data){
-        //    console.log(data)
-           state.search_phrase = data
-       }
-
    },
    
    actions:{
-        // async getText ({commit}){
-        //     let response = await fetch('/api/search/' + state.search_phrase)
-        //     let data  = await response
-        //     console.log(data)
-        //     commit('setSearchResults', data)
-
-        // },
         
         async insertSearchPhrase({state}){
             let response = await fetch('/api/search/' + state.results.search_phrase)
             let data = await response.json()
             console.log(data)
+
+
+            const uniqueDocuments = Array.from(new Set(data.map(a => a.id)))
+             .map(id => {
+                return data.find(a => a.id === id)
+             })
+            console.log(uniqueDocuments) 
+
             
-            state.lagerstedt = data
-            console.log(state.lagerstedt)
-        } 
-   }
+            state.lagerstedt = uniqueDocuments
+            console.log(state.lagerstedt)      
+       
+        }
+    }
 })
 
 export default store

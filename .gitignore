@@ -8,6 +8,7 @@ bin-release/
 .settings/
 *.db
 Backend/NLPBackend/scraped
+Backend/NLPBackend/pdfs
 Backend/NLPBackend/sv_pipeline-0.0.0
 
 *.idea
@@ -20,6 +21,8 @@ Backend/NLPBackend/sv_pipeline-0.0.0
 *.idea
 
 /node_modules
+*__pycache__/
+*.pyc
 
 # Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
 # should NOT be excluded as they contain compiler settings and other important
