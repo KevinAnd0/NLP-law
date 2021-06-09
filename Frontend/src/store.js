@@ -4,7 +4,7 @@ const store = createStore({
    
     state:{
         
-        lagerstedt: []
+        search_result: []
    },
    
    mutations:{
@@ -30,8 +30,8 @@ const store = createStore({
             console.log(uniqueDocuments) 
 
             
-            state.lagerstedt = uniqueDocuments
-            console.log(state.lagerstedt)      
+            state.search_result = uniqueDocuments
+            console.log(state.search_result)      
        
         }
     }

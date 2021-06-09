@@ -4,15 +4,15 @@
             <h3 class="rounded-bottom">Sökresultat:</h3>
         </div>
         <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action" v-for="item in lagerstedt" :key="item.id" v-on:click="handleSelectItem(item)">{{item.summary}}</a>   
+            <a href="#" class="list-group-item list-group-item-action" v-for="item in search_result" :key="item.id" v-on:click="handleSelectItem(item)">{{item.summary}}</a>   
         </div>
     </div>
 </template>
 <script>
 export default {
     computed:{
-        lagerstedt(){
-            return this.$store.state.lagerstedt
+        search_result(){
+            return this.$store.state.search_result
         }
     },
     methods:{
