@@ -3,14 +3,16 @@ import { createStore } from "vuex"
 const store = createStore({
    
     state:{
-        
-        search_result: []
+        results:{
+            search_phrase: ""
+        },
+        search_result: []  
    },
    
    mutations:{
        setSearchResults(state, results){
            state.results = results
-           console.log(results)
+           console.log(state.results.search_phrase)
 
        },
    },

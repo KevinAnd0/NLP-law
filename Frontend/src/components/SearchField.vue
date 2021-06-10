@@ -12,16 +12,23 @@
 
 <script>
 export default {
+    data(){
+        return{
+            search_phrase: ""
+        }
+    },
     methods:{
         submit(event){
-            event.preventDefault()
+            
             this.$router.push('search') // redirect to 'Search.vue'
             this.$store.commit('setSearchResults', {
                 search_phrase: this.search_phrase
             })
             this.$store.dispatch('insertSearchPhrase')
-        
-        }
+            this.search_phrase = ""
+            event.preventDefault()
+        },
+    
         
     }
 
