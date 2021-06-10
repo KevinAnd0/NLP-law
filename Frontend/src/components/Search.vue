@@ -4,7 +4,7 @@
             <h3 class="rounded-bottom">Sökresultat för: {{search_phrase}}</h3>
         </div>
         <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action" v-for="item in search_result" :key="item.id" v-on:click="handleSelectItem(item)">{{item.summary}}</a>   
+            <a href="#" tabindex="1" class="list-group-item list-group-item-action" v-for="item in search_result" :key="item.id" v-on:click="handleSelectItem(item)">{{item.summary}}</a>   
         </div>
     </div>
 </template>
@@ -27,6 +27,7 @@ export default {
                 alert("Ingen dom hittad")
             }
             console.log(this.item)
+
         }   
     }
     
@@ -41,12 +42,10 @@ export default {
 .list-group-item:hover {
     background-color: rgb(199, 171, 133);
 } 
+.list-group-item[tabindex]:focus{
+    background-color: rgb(218, 195, 195);
+}
 h3{
     background-color: rgb(235, 215, 184);
-}
-a{
-    background-color: blue;
-}
-  
- 
+} 
 </style>
