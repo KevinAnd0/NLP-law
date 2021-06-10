@@ -5,6 +5,7 @@
 import os
 import sqlite3
 import spacy
+from summarize import summarize
 
 # 'scraped' has 164 text files of summaries of judicial precedent cases concerning consumer rights
 # 'pdfs' has 146 pdfs of detailed descriptions of the various cases. Not all cases located in 'scraped' 
@@ -45,6 +46,7 @@ def delete_database():
     con.close()
 
 def get_keywords(text):
+    text = text.lower()
     pos_tag = ['NOUN']
     key_words = []
     doc = nlp(text)
@@ -80,10 +82,13 @@ def setup_database():
         # Getting rid of 'mål_' in the beginning of the filename and '.txt' in the end.
         link = f[4:-4]
         if link in cases_with_no_ref:
+          # When we lack a larger body of text to summarize over, we add the already given summary.
           cur.execute("INSERT INTO texts (id, summary) VALUES (?, ?)", (file_id, referat))
         else:
           link = f'{link}.pdf'
-          cur.execute("INSERT INTO texts (id, documentlink, summary) VALUES (?, ?, ?)", (file_id, link, referat))
+          # When we do have a larger body of text, we generate a summary.
+          sum = summarize(link)
+          cur.execute("INSERT INTO texts (id, documentlink, summary) VALUES (?, ?, ?)", (file_id, link, sum))
         
         con.commit()
 
