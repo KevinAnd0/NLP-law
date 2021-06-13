@@ -13,15 +13,20 @@ For example:
     databaseCon.close()
     
 (Always close the connection after use)
+'''
 
+
+'''
 Methods:
 
 - Text - table
 
 get_all_rows_in_texts() - Gets all rows in the text field
+get_text_by_id(id) - Gets text by id
 
 
 - Keywords - table
+
 get_all_keywords() - Gets all rows in keywords
 get_specific_keyword(word) - Finds all posts with a specific word
 
@@ -33,30 +38,35 @@ class Database:
     def __init__(self):
         self.db_name = "nlpdatabase.db"
         self.connection = sqlite3.connect(self.db_name)
-
-    def get_all_rows_in_texts(self):
-        rows = []
         self.cur = self.connection.cursor()
-        for row in self.cur.execute('''SELECT * FROM texts'''):
-            rows.append(row)
-        return rows
-
-    def get_all_keywords(self):
-        rows = []
-        self.cur = self.connection.cursor()
-        for row in self.cur.execute('''SELECT * FROM keywords'''):
-            rows.append(row)
-        return rows
-
-    def get_specific_keyword(self,word):
+        
+    def get_keywords_by_search(self, word):
         results = []
-        self.cur = self.connection.cursor()
-        self.cur.execute("SELECT * FROM keywords WHERE keyword = ?",(word,))
+        self.cur.execute("SELECT * FROM keywords WHERE LOWER(keyword) LIKE ('%'||?||'%')", (word,))
         rows = self.cur.fetchall()
         for row in rows:
-            results.append(row)
+            obj = {
+                self.cur.description[0][0]: row[0],
+                self.cur.description[1][0]: row[1]
+            }
+            results.append(obj)
         return results
 
+    def get_texts_by_keywords(self, keyword):
+        results = None
+        self.cur.execute('''SELECT DISTINCT * FROM texts JOIN keywords, keywordsXtexts
+                            ON texts.id = keywordsXtexts.texts AND keywords.id = keywordsXtexts.keywords 
+                            WHERE LOWER(keyword) LIKE ('%'||?||'%')''', (keyword,))
+        rows = self.cur.fetchall()
+        for row in rows:
+            results = {
+                self.cur.description[0][0]: row[0],
+                self.cur.description[1][0]: row[1],
+                self.cur.description[2][0]: row[2]
+            }
+        return results
+    
     def close(self):
         self.connection.commit()
         self.connection.close()
+
